@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * @author Kamlesh Kumar (<a href="https://kamlesh-kumar.com">Technical Musings and Beyond</a>)
+ */
 @Configuration
 public class HazelcastConfig {
 
@@ -21,6 +24,7 @@ public class HazelcastConfig {
     public HazelcastInstance hazelcast() {
         Config config = new Config();
 
+        // Configure the ring buffer
         RingbufferConfig ringbufferConfig = new RingbufferConfig(ringBufferName);
         ringbufferConfig.setCapacity(ringBufferCapacity);
 

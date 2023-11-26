@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 
+/**
+ * @author Kamlesh Kumar (<a href="https://kamlesh-kumar.com">Technical Musings and Beyond</a>)
+ */
 @RestController
 @RequestMapping("/search")
 public class SearchController {
@@ -29,7 +32,7 @@ public class SearchController {
     public Collection<String> getAllRecentSearches() {
         try {
             return service.getAllRecentSearches();
-        } catch (InterruptedException e) { // The readOne method may throw InterruptedException
+        } catch (InterruptedException e) { // The readOne methods of Ringbuffer may throw InterruptedException
             throw new RuntimeException(e);
         }
     }

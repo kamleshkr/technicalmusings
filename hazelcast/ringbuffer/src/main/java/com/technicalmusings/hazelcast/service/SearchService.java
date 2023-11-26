@@ -12,18 +12,24 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author Kamlesh Kumar (<a href="https://kamlesh-kumar.com">Technical Musings and Beyond</a>)
+ */
 @Service
 public class SearchService {
 
     Logger logger = LoggerFactory.getLogger(SearchService.class);
 
-    @Autowired
-    private HazelcastInstance hzInstance;
+    private final HazelcastInstance hzInstance;
 
-    @Value("${recentSearch.ringBuffer.name}")
-    private String ringBufferName;
+    private final String ringBufferName;
 
-    // TODO: Do constructor Injection
+    public SearchService(
+            HazelcastInstance hzInstance,
+            @Value("${recentSearch.ringBuffer.name}") String ringBufferName) {
+        this.hzInstance = hzInstance;
+        this.ringBufferName = ringBufferName;
+    }
 
     /**
      * Search for the specified query

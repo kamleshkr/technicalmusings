@@ -12,6 +12,11 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import java.util.Collection;
 import java.util.stream.IntStream;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+/**
+ * @author Kamlesh Kumar (<a href="https://kamlesh-kumar.com">Technical Musings and Beyond</a>)
+ */
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class SearchControllerTest {
 
@@ -25,21 +30,26 @@ class SearchControllerTest {
     private int ringBufferCapacity;
 
     @Test
-    void recentSearchesShouldContainOnlyMaxAllowedResults() throws Exception {
+    void recentSearchesShouldContainOnlyMaxAllowedResults() {
         IntStream
-                .range(0, 20)
-                .forEach( i ->
-                        Assertions.assertThat(
-                                this.restTemplate.getForObject("http://localhost:" + port + "/search?query=searchString" + i,
-                                String.class)
-                        ).contains("You searched for")
-                );
+            .range(0, 20)
+            .forEach(i ->
+                assertThat(
+                    this.restTemplate.getForObject(
+                        "http://localhost:%d/search?query=searchString%d".formatted(port, i),
+                        String.class
+                    )
+                ).contains("You searched for")
+            );
 
         @SuppressWarnings("unchecked")
-        Collection<String> recentSearches = this.restTemplate.getForObject("http://localhost:" + port + "/search/recent",
-                Collection.class);
+        Collection<String> recentSearches =
+            this.restTemplate.getForObject(
+              "http://localhost:%d/search/recent".formatted(port),
+              Collection.class
+            );
 
-        Assertions.assertThat(recentSearches.size()).isEqualTo(ringBufferCapacity);
+        assertThat(recentSearches.size()).isEqualTo(ringBufferCapacity);
 
     }
 
