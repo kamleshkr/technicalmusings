@@ -1,0 +1,4 @@
+recentSearch:
+  ringBuffer:
+    name: "recentSearch"
+    capacity: 16
