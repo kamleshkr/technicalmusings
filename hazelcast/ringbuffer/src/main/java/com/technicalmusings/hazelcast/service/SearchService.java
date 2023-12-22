@@ -24,6 +24,7 @@ public class SearchService {
 
     private final String ringBufferName;
 
+    @Autowired
     public SearchService(
             HazelcastInstance hzInstance,
             @Value("${recentSearch.ringBuffer.name}") String ringBufferName) {
