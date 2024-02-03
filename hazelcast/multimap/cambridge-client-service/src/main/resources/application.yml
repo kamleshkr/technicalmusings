@@ -1,0 +1,5 @@
+server:
+  port: 8081
+dictionary:
+  cache:
+    name: "dictionary-cache"

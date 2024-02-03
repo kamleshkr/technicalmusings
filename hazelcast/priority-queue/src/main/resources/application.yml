@@ -1,3 +1,24 @@
 ticket:
   queue:
     name: "ticketPriorityQueue"
+
+$ curl http://localhost:8080/tickets
+% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+  Dload  Upload   Total   Spent    Left  Speed
+  100   381    0   381    0     0  43270      0 --:--:-- --:--:-- --:--:-- 47625[
+  {"id":"76de1eb6-1ec3-4cbc-87ae-3bea37f77c81","name":"T-S2-P1","priority":1},
+  {"id":"ec8d9648-ecbd-4a66-878b-86680de5d2a4","name":"T-S1-P1","priority":1},
+  {"id":"8e9d864e-7c9f-43f1-b75c-e2e6b30efb8e","name":"T-S1-P2","priority":2},
+  {"id":"e4d33ab3-e3d4-4586-9da9-349f95a4f79c","name":"T-S2-P2","priority":2},
+  {"id":"b2e0d899-350f-4c96-a644-194c876d6791","name":"T-S1-P3","priority":3}]
+
+
+  $ curl http://localhost:8080/tickets
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+  Dload  Upload   Total   Spent    Left  Speed
+  100   381    0   381    0     0  20012      0 --:--:-- --:--:-- --:--:-- 21166[
+  {"id":"1cd443f9-b4f6-4786-9e7c-a657b33e3280","name":"T-S2-P1","priority":1},
+  {"id":"13413860-19a8-44c4-9a90-74b6d5ce2cb8","name":"T-S1-P1","priority":1},
+  {"id":"3f0d14b9-a2de-4cca-bb12-309746b8b0c6","name":"T-S1-P2","priority":2},
+  {"id":"5fe1d57d-7df6-427c-8aef-0b0e8363ae4c","name":"T-S2-P2","priority":2},
+  {"id":"7917a1ae-ab0a-47e3-9087-a74d0cbf315d","name":"T-S1-P3","priority":3}]

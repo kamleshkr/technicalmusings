@@ -14,10 +14,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ticket implements Serializable {
-
     @Serial
     private static final long serialVersionUID = -175102428087953335L;
-
     private String id;
     private String name;
     private Short priority;
