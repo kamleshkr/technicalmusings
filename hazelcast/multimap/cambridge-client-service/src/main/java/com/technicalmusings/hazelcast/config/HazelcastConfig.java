@@ -21,7 +21,6 @@ public class HazelcastConfig {
     public HazelcastInstance hazelcast() {
         Config config = new Config();
 
-        // Configure multimap
         MultiMapConfig mmConfig
                 = new MultiMapConfig()
                     .setName(cacheName)

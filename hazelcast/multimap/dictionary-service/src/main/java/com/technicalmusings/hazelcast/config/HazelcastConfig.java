@@ -21,13 +21,12 @@ public class HazelcastConfig {
     public HazelcastInstance hazelcast() {
         Config config = new Config();
 
-        // Configure multimap
-        /*MultiMapConfig mmConfig
+        MultiMapConfig mmConfig
                 = new MultiMapConfig()
                     .setName(cacheName)
                     .setValueCollectionType( "SET" );
 
-        config.addMultiMapConfig(mmConfig);*/
+        config.addMultiMapConfig(mmConfig);
 
         return Hazelcast.newHazelcastInstance(config);
     }
