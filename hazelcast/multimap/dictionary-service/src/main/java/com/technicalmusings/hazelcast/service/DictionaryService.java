@@ -23,7 +23,7 @@ public class DictionaryService {
         this.dictionaryCacheName = dictionaryCacheName;
     }
 
-    public Collection<String> getWordDefinitions(String word) {
+    public Collection<String> getWordMeanings(String word) {
         MultiMap<String, String> dictionaryCache =  hzInstance.getMultiMap(dictionaryCacheName);
         return dictionaryCache.get(word);
     }

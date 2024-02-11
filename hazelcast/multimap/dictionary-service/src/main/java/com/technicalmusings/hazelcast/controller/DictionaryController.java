@@ -23,10 +23,9 @@ public class DictionaryController {
         this.service = service;
     }
 
-
     @GetMapping("/{word}")
-    public Collection<String> getWordDefinitions(@PathVariable String word) {
-        return service.getWordDefinitions(word);
+    public Collection<String> getWordMeanings(@PathVariable String word) {
+        return service.getWordMeanings(word);
     }
 
 }
