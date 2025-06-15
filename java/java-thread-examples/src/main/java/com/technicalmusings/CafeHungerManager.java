@@ -29,7 +29,7 @@ class TheTechnicalMusingsCafe {
         logger.info("⚡ {} enters, evaluating their hunger. Estimated wait:: {} seconds.", customerName, waitTime);
 
         waitingQueue.offer(customerName);
-        new Thread(() -> dine()).start();
+        new Thread(this::dine).start();
     }
 
     public void dine() {
@@ -53,12 +53,10 @@ public class CafeHungerManager {
     public static final Logger logger = LoggerFactory.getLogger(CafeHungerManager.class);
     
     public static void main(String[] args) {
-        logger.info("🍽️ TheTechnical Musings Cafe's CafeHungerManager Booting Up...");
+        logger.info("🍽️ The Technical Musings Cafe's CafeHungerManager Booting Up...");
         logger.info("🚀 Preparing tables for incoming hungry customers...");
 
-        int totalTables = 5;
-        int diningTime = 10; // Assume 10 seconds per customer
-        int noOfCustomersArrived = 12;
+        int totalTables = 5, diningTime = 10, noOfCustomersArrived = 12;
 
         TheTechnicalMusingsCafe cafe = new TheTechnicalMusingsCafe(totalTables, diningTime);
 
